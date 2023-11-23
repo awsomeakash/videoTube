@@ -47,6 +47,7 @@ const userSchema = new Schema({
 }, {timestamps: true})
 
 
+//Before saving to Db pre method applies encrytption to password field
 userSchema.pre("save",async function(next){
     if(!this.isModified("password")) return next();
         this.password = await bcrypt.hash(this.password, 10)
