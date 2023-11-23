@@ -14,5 +14,11 @@ app.use(express.urlencoded({extended:true , limit:"16kb"})) // Using url params 
 app.use(express.static("public")) //To access a folder where you want some data to be stored locally
 app.use(cookieParser()) // To read and edit the cookies in the client side
 
+//routes import
+import userRouter from './routes/user.routes.js'
+
+//routes declaration
+app.use("/api/v1/users",userRouter)
+
 
 export {app}
